@@ -1,0 +1,6 @@
+# Lokalna Claude Code podešavanja
+.claude/
+
+# Izvorne slike (već ugrađene u index.html kao base64)
+image.png
+image0.png
