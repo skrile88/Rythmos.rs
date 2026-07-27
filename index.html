@@ -310,6 +310,14 @@ footer{background:#0B1430;color:#8B9BC4;padding:3.6rem 0 2rem}
 .foot-col a{display:block;text-decoration:none;font-size:.9rem;color:#B0BCDC;margin-bottom:.55rem}
 .foot-col a:hover{color:var(--gold)}
 .foot-bottom{display:flex;justify-content:space-between;padding-top:1.6rem;font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:#54679B;flex-wrap:wrap;gap:.6rem}
+/* ---- lightbox (uvecanje malih slika) ---- */
+.shot{cursor:zoom-in}
+.lightbox{position:fixed;inset:0;z-index:200;display:none;flex-direction:column;align-items:center;justify-content:center;gap:.9rem;padding:2.5rem 1.2rem;background:rgba(6,12,30,.93);cursor:zoom-out}
+.lightbox.open{display:flex}
+.lightbox img{max-width:95vw;max-height:85vh;width:auto;height:auto;border-radius:8px;box-shadow:0 30px 80px -20px rgba(0,0,0,.7)}
+.lightbox-cap{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;color:#B0BCDC}
+.lightbox-close{position:absolute;top:1rem;right:1.2rem;background:none;border:0;color:#fff;font-size:2.2rem;line-height:1;cursor:pointer;opacity:.75}
+.lightbox-close:hover{opacity:1}
 </style>
 </head>
 <body>
@@ -819,7 +827,7 @@ footer{background:#0B1430;color:#8B9BC4;padding:3.6rem 0 2rem}
         <h3>Pilot: šest nedelja, vaši tarifnici, merljiv rezultat.</h3>
         <p>Interni AI asistent na izabranom skupu vaših procedura i tarifnika. Zaposleni postavljaju stvarna pitanja, uspeh merimo tačnošću odgovora — pa tek onda razgovaramo o kupovini.</p>
       </div>
-      <a class="btn btn-gold" href="mailto:rythmos360view@0utlook.com?subject=Pilot%20AI%20asistenta">Zatraži pilot</a>
+      <a class="btn btn-gold" href="mailto:rythmos360view@outlook.com?subject=Pilot%20AI%20asistenta">Zatraži pilot</a>
     </div>
   </div>
 </section>
@@ -865,10 +873,10 @@ footer{background:#0B1430;color:#8B9BC4;padding:3.6rem 0 2rem}
     <h2>Pokažite nam proces. Mi ćemo vam pokazati sistem.</h2>
     <p>Demo traje 30 minuta, na stvarnom sistemu u produkciji — bez slajdova i obećanja. Beograd ili online.</p>
     <div class="cta-btns">
-      <a class="btn btn-gold" href="mailto:rythmos360view@0utlook.com?subject=Zakazivanje%20demo%20prezentacije">Zakaži demo</a>
-      <a class="btn btn-ghost" href="mailto:rythmos360view@0utlook.com">Pošalji upit</a>
+      <a class="btn btn-gold" href="mailto:rythmos360view@outlook.com?subject=Zakazivanje%20demo%20prezentacije">Zakaži demo</a>
+      <a class="btn btn-ghost" href="mailto:rythmos360view@outlook.com">Pošalji upit</a>
     </div>
-    <span class="mono-mail">rythmos360view@0utlook.com · <a href="https://rythmos.rs">rythmos.rs</a> · Beograd</span>
+    <span class="mono-mail">rythmos360view@outlook.com · <a href="https://rythmos.rs">rythmos.rs</a> · Beograd</span>
   </div>
 </section>
 
@@ -892,7 +900,7 @@ footer{background:#0B1430;color:#8B9BC4;padding:3.6rem 0 2rem}
       </div>
       <div class="foot-col">
         <h4>Kontakt</h4>
-        <a href="mailto:rythmos360view@0utlook.com">rythmos360view@0utlook.com</a>
+        <a href="mailto:rythmos360view@outlook.com">rythmos360view@outlook.com</a>
         <a href="#kontakt">Zakaži demo</a>
         <a href="https://rythmos.rs">rythmos.rs</a>
       </div>
@@ -991,6 +999,28 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
     $('oEff').textContent=pct(cost/A*100); $('oRest').textContent=fmt(Math.max(rest,0));
   }
   ['fAmount','fAdvance','fFee','fRate','fDays'].forEach(id=>$(id).addEventListener('input',calcF)); calcF();
+})();
+
+/* ---- lightbox za male slike ---- */
+(function(){
+  const lb = document.createElement('div');
+  lb.className = 'lightbox';
+  lb.innerHTML = '<button class="lightbox-close" aria-label="Zatvori">&times;</button><img alt=""><div class="lightbox-cap"></div>';
+  document.body.appendChild(lb);
+  const im = lb.querySelector('img'), cap = lb.querySelector('.lightbox-cap');
+  function close(){ lb.classList.remove('open'); document.body.style.overflow=''; }
+  lb.addEventListener('click', close);
+  document.addEventListener('keydown', e => { if(e.key === 'Escape') close(); });
+  document.querySelectorAll('.shot').forEach(sh => {
+    sh.addEventListener('click', () => {
+      const img = sh.querySelector('img');
+      if(!img) return;
+      im.src = img.src; im.alt = img.alt || '';
+      const span = sh.querySelector('.shot-bar span');
+      cap.textContent = span ? span.textContent : '';
+      lb.classList.add('open'); document.body.style.overflow='hidden';
+    });
+  });
 })();
 </script>
 </body>
