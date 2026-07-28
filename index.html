@@ -190,8 +190,11 @@ h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,3.4vw,2.7rem)
 @media(max-width:900px){.calc-shell{grid-template-columns:1fr}}
 .calc-form{display:flex;flex-direction:column;gap:1.35rem}
 .field label{display:block;font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:.45rem}
-.field .row{display:flex;align-items:center;gap:1rem}
+.field .row{display:flex;align-items:center;gap:.6rem}
 input[type=range]{flex:1;accent-color:var(--royal);height:4px}
+.step-btn{flex-shrink:0;width:28px;height:28px;border:1px solid var(--line);background:none;border-radius:6px;color:var(--navy);font-family:var(--mono);font-size:1rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .2s,color .2s}
+.step-btn:hover{border-color:var(--gold);color:var(--gold)}
+.step-btn:active{background:var(--gold-soft)}
 .val{font-family:var(--mono);font-size:.92rem;color:var(--navy);min-width:120px;text-align:right;font-weight:500}
 .calc-out{background:var(--navy);color:#fff;border-radius:6px;padding:2.2rem;position:relative;overflow:hidden}
 .calc-out::after{content:'';position:absolute;inset:auto -20% -55% -20%;height:70%;background:radial-gradient(ellipse at center,rgba(30,69,149,.55),transparent 70%);pointer-events:none}
@@ -667,11 +670,21 @@ footer{background:#0B1430;color:#8B9BC4;padding:3.6rem 0 2rem}
     <div class="calc-shell calc-pane active reveal" id="pane-anuitet">
       <div class="calc-form">
         <div class="field"><label for="aAmount" data-en="Loan amount">Iznos kredita</label>
-          <div class="row"><input type="range" id="aAmount" min="100000" max="30000000" step="50000" value="3000000"><span class="val" id="aVAmount"></span></div></div>
+          <div class="row">
+            <button type="button" class="step-btn step-minus" data-target="aAmount" aria-label="Smanji" data-en-aria="Decrease">−</button>
+            <input type="range" id="aAmount" min="100000" max="30000000" step="50000" value="3000000">
+            <button type="button" class="step-btn step-plus" data-target="aAmount" aria-label="Povećaj" data-en-aria="Increase">+</button>
+            <span class="val" id="aVAmount"></span>
+          </div></div>
         <div class="field"><label for="aRate" data-en="Interest rate (annual)">Kamatna stopa (godišnja)</label>
           <div class="row"><input type="range" id="aRate" min="1" max="20" step="0.1" value="6"><span class="val" id="aVRate"></span></div></div>
         <div class="field"><label for="aTerm" data-en="Repayment term">Rok otplate</label>
-          <div class="row"><input type="range" id="aTerm" min="6" max="360" step="6" value="84"><span class="val" id="aVTerm"></span></div></div>
+          <div class="row">
+            <button type="button" class="step-btn step-minus" data-target="aTerm" aria-label="Smanji" data-en-aria="Decrease">−</button>
+            <input type="range" id="aTerm" min="6" max="360" step="6" value="84">
+            <button type="button" class="step-btn step-plus" data-target="aTerm" aria-label="Povećaj" data-en-aria="Increase">+</button>
+            <span class="val" id="aVTerm"></span>
+          </div></div>
       </div>
       <div class="calc-out" aria-live="polite">
         <div class="co-title" data-en="Annuity calculation">Anuitetni obračun</div>
@@ -689,11 +702,21 @@ footer{background:#0B1430;color:#8B9BC4;padding:3.6rem 0 2rem}
     <div class="calc-shell calc-pane reveal" id="pane-rate">
       <div class="calc-form">
         <div class="field"><label for="rAmount" data-en="Loan amount">Iznos kredita</label>
-          <div class="row"><input type="range" id="rAmount" min="100000" max="30000000" step="50000" value="3000000"><span class="val" id="rVAmount"></span></div></div>
+          <div class="row">
+            <button type="button" class="step-btn step-minus" data-target="rAmount" aria-label="Smanji" data-en-aria="Decrease">−</button>
+            <input type="range" id="rAmount" min="100000" max="30000000" step="50000" value="3000000">
+            <button type="button" class="step-btn step-plus" data-target="rAmount" aria-label="Povećaj" data-en-aria="Increase">+</button>
+            <span class="val" id="rVAmount"></span>
+          </div></div>
         <div class="field"><label for="rRate" data-en="Interest rate (annual)">Kamatna stopa (godišnja)</label>
           <div class="row"><input type="range" id="rRate" min="1" max="20" step="0.1" value="6"><span class="val" id="rVRate"></span></div></div>
         <div class="field"><label for="rTerm" data-en="Repayment term">Rok otplate</label>
-          <div class="row"><input type="range" id="rTerm" min="6" max="360" step="6" value="84"><span class="val" id="rVTerm"></span></div></div>
+          <div class="row">
+            <button type="button" class="step-btn step-minus" data-target="rTerm" aria-label="Smanji" data-en-aria="Decrease">−</button>
+            <input type="range" id="rTerm" min="6" max="360" step="6" value="84">
+            <button type="button" class="step-btn step-plus" data-target="rTerm" aria-label="Povećaj" data-en-aria="Increase">+</button>
+            <span class="val" id="rVTerm"></span>
+          </div></div>
       </div>
       <div class="calc-out" aria-live="polite">
         <div class="co-title" data-en="Installment calculation · equal principal">Obračun na rate · jednaka glavnica</div>
@@ -711,7 +734,12 @@ footer{background:#0B1430;color:#8B9BC4;padding:3.6rem 0 2rem}
     <div class="calc-shell calc-pane reveal" id="pane-faktoring">
       <div class="calc-form">
         <div class="field"><label for="fAmount" data-en="Invoice value">Vrednost fakture</label>
-          <div class="row"><input type="range" id="fAmount" min="100000" max="20000000" step="50000" value="2000000"><span class="val" id="vAmount"></span></div></div>
+          <div class="row">
+            <button type="button" class="step-btn step-minus" data-target="fAmount" aria-label="Smanji" data-en-aria="Decrease">−</button>
+            <input type="range" id="fAmount" min="100000" max="20000000" step="50000" value="2000000">
+            <button type="button" class="step-btn step-plus" data-target="fAmount" aria-label="Povećaj" data-en-aria="Increase">+</button>
+            <span class="val" id="vAmount"></span>
+          </div></div>
         <div class="field"><label for="fAdvance" data-en="Advance">Avans</label>
           <div class="row"><input type="range" id="fAdvance" min="50" max="95" step="1" value="80"><span class="val" id="vAdvance"></span></div></div>
         <div class="field"><label for="fFee" data-en="Factoring fee">Faktoring provizija</label>
@@ -966,6 +994,15 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   const yrs = n => { const g=Math.floor(n/12), m=n%12;
     if(window.currentLang==='en') return n + ' mo.' + (g? ' ('+g+(m? ' yr '+m+' mo.':' yr')+')':'');
     return n + ' mes.' + (g? ' ('+g+(m? ' g. '+m+' m.':' god.')+')':''); };
+
+  /* +/- steppers */
+  document.querySelectorAll('.step-btn').forEach(btn => btn.addEventListener('click', ()=>{
+    const input = $(btn.dataset.target);
+    const step = +input.step || 1, min = +input.min, max = +input.max;
+    const dir = btn.classList.contains('step-plus') ? 1 : -1;
+    input.value = Math.min(max, Math.max(min, +input.value + dir*step));
+    input.dispatchEvent(new Event('input', {bubbles:true}));
+  }));
 
   /* tabs */
   document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', ()=>{
