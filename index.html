@@ -201,6 +201,7 @@ input[type=range]{flex:1;accent-color:var(--royal);height:4px}
 .exact:focus{outline:none;border-color:var(--gold)}
 .exact::-webkit-outer-spin-button,.exact::-webkit-inner-spin-button{-webkit-appearance:none;appearance:none;margin:0}
 .exact{-moz-appearance:textfield;appearance:textfield}
+.exact-suffix{font-family:var(--mono);font-size:.8rem;color:var(--ink-3);flex-shrink:0}
 .calc-out{background:var(--navy);color:#fff;border-radius:6px;padding:2.2rem;position:relative;overflow:hidden}
 .calc-out::after{content:'';position:absolute;inset:auto -20% -55% -20%;height:70%;background:radial-gradient(ellipse at center,rgba(30,69,149,.55),transparent 70%);pointer-events:none}
 .co-title{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:1.6rem}
@@ -681,7 +682,7 @@ footer{background:#0B1430;color:#8B9BC4;padding:3.6rem 0 2rem}
             <button type="button" class="step-btn step-plus" data-target="aAmount" aria-label="Povećaj" data-en-aria="Increase">+</button>
           </div>
           <div class="row row-exact">
-            <input type="text" class="exact" id="aAmountExact" inputmode="numeric" aria-label="Unesi tačan iznos" data-en-aria="Enter exact amount">
+            <input type="text" class="exact" id="aAmountExact" inputmode="numeric" aria-label="Unesi tačan iznos" data-en-aria="Enter exact amount"><span class="exact-suffix">RSD</span>
           </div></div>
         <div class="field"><label for="aRate" data-en="Interest rate (annual)">Kamatna stopa (godišnja)</label>
           <div class="row"><input type="range" id="aRate" min="1" max="20" step="0.1" value="6"><span class="val" id="aVRate"></span></div></div>
@@ -718,7 +719,7 @@ footer{background:#0B1430;color:#8B9BC4;padding:3.6rem 0 2rem}
             <button type="button" class="step-btn step-plus" data-target="rAmount" aria-label="Povećaj" data-en-aria="Increase">+</button>
           </div>
           <div class="row row-exact">
-            <input type="text" class="exact" id="rAmountExact" inputmode="numeric" aria-label="Unesi tačan iznos" data-en-aria="Enter exact amount">
+            <input type="text" class="exact" id="rAmountExact" inputmode="numeric" aria-label="Unesi tačan iznos" data-en-aria="Enter exact amount"><span class="exact-suffix">RSD</span>
           </div></div>
         <div class="field"><label for="rRate" data-en="Interest rate (annual)">Kamatna stopa (godišnja)</label>
           <div class="row"><input type="range" id="rRate" min="1" max="20" step="0.1" value="6"><span class="val" id="rVRate"></span></div></div>
@@ -755,7 +756,7 @@ footer{background:#0B1430;color:#8B9BC4;padding:3.6rem 0 2rem}
             <button type="button" class="step-btn step-plus" data-target="fAmount" aria-label="Povećaj" data-en-aria="Increase">+</button>
           </div>
           <div class="row row-exact">
-            <input type="text" class="exact" id="fAmountExact" inputmode="numeric" aria-label="Unesi tačan iznos" data-en-aria="Enter exact amount">
+            <input type="text" class="exact" id="fAmountExact" inputmode="numeric" aria-label="Unesi tačan iznos" data-en-aria="Enter exact amount"><span class="exact-suffix">RSD</span>
           </div></div>
         <div class="field"><label for="fAdvance" data-en="Advance">Avans</label>
           <div class="row"><input type="range" id="fAdvance" min="50" max="95" step="1" value="80"><span class="val" id="vAdvance"></span></div></div>
