@@ -196,6 +196,11 @@ input[type=range]{flex:1;accent-color:var(--royal);height:4px}
 .step-btn:hover{border-color:var(--gold);color:var(--gold)}
 .step-btn:active{background:var(--gold-soft)}
 .val{font-family:var(--mono);font-size:.92rem;color:var(--navy);min-width:120px;text-align:right;font-weight:500}
+.row-exact{margin-top:.5rem}
+.exact{width:140px;flex-shrink:0;font-family:var(--mono);font-size:.85rem;color:var(--navy);border:1px solid var(--line);border-radius:6px;padding:.4rem .6rem;background:#fff}
+.exact:focus{outline:none;border-color:var(--gold)}
+.exact::-webkit-outer-spin-button,.exact::-webkit-inner-spin-button{-webkit-appearance:none;appearance:none;margin:0}
+.exact{-moz-appearance:textfield;appearance:textfield}
 .calc-out{background:var(--navy);color:#fff;border-radius:6px;padding:2.2rem;position:relative;overflow:hidden}
 .calc-out::after{content:'';position:absolute;inset:auto -20% -55% -20%;height:70%;background:radial-gradient(ellipse at center,rgba(30,69,149,.55),transparent 70%);pointer-events:none}
 .co-title{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:1.6rem}
@@ -674,6 +679,9 @@ footer{background:#0B1430;color:#8B9BC4;padding:3.6rem 0 2rem}
             <button type="button" class="step-btn step-minus" data-target="aAmount" aria-label="Smanji" data-en-aria="Decrease">−</button>
             <input type="range" id="aAmount" min="100000" max="30000000" step="50000" value="3000000">
             <button type="button" class="step-btn step-plus" data-target="aAmount" aria-label="Povećaj" data-en-aria="Increase">+</button>
+          </div>
+          <div class="row row-exact">
+            <input type="number" class="exact" id="aAmountExact" min="100000" max="30000000" step="1" value="3000000" inputmode="numeric" aria-label="Unesi tačan iznos" data-en-aria="Enter exact amount">
             <span class="val" id="aVAmount"></span>
           </div></div>
         <div class="field"><label for="aRate" data-en="Interest rate (annual)">Kamatna stopa (godišnja)</label>
@@ -683,6 +691,9 @@ footer{background:#0B1430;color:#8B9BC4;padding:3.6rem 0 2rem}
             <button type="button" class="step-btn step-minus" data-target="aTerm" aria-label="Smanji" data-en-aria="Decrease">−</button>
             <input type="range" id="aTerm" min="6" max="360" step="6" value="84">
             <button type="button" class="step-btn step-plus" data-target="aTerm" aria-label="Povećaj" data-en-aria="Increase">+</button>
+          </div>
+          <div class="row row-exact">
+            <input type="number" class="exact" id="aTermExact" min="6" max="360" step="1" value="84" inputmode="numeric" aria-label="Unesi tačan broj meseci" data-en-aria="Enter exact number of months">
             <span class="val" id="aVTerm"></span>
           </div></div>
       </div>
@@ -706,6 +717,9 @@ footer{background:#0B1430;color:#8B9BC4;padding:3.6rem 0 2rem}
             <button type="button" class="step-btn step-minus" data-target="rAmount" aria-label="Smanji" data-en-aria="Decrease">−</button>
             <input type="range" id="rAmount" min="100000" max="30000000" step="50000" value="3000000">
             <button type="button" class="step-btn step-plus" data-target="rAmount" aria-label="Povećaj" data-en-aria="Increase">+</button>
+          </div>
+          <div class="row row-exact">
+            <input type="number" class="exact" id="rAmountExact" min="100000" max="30000000" step="1" value="3000000" inputmode="numeric" aria-label="Unesi tačan iznos" data-en-aria="Enter exact amount">
             <span class="val" id="rVAmount"></span>
           </div></div>
         <div class="field"><label for="rRate" data-en="Interest rate (annual)">Kamatna stopa (godišnja)</label>
@@ -715,6 +729,9 @@ footer{background:#0B1430;color:#8B9BC4;padding:3.6rem 0 2rem}
             <button type="button" class="step-btn step-minus" data-target="rTerm" aria-label="Smanji" data-en-aria="Decrease">−</button>
             <input type="range" id="rTerm" min="6" max="360" step="6" value="84">
             <button type="button" class="step-btn step-plus" data-target="rTerm" aria-label="Povećaj" data-en-aria="Increase">+</button>
+          </div>
+          <div class="row row-exact">
+            <input type="number" class="exact" id="rTermExact" min="6" max="360" step="1" value="84" inputmode="numeric" aria-label="Unesi tačan broj meseci" data-en-aria="Enter exact number of months">
             <span class="val" id="rVTerm"></span>
           </div></div>
       </div>
@@ -738,6 +755,9 @@ footer{background:#0B1430;color:#8B9BC4;padding:3.6rem 0 2rem}
             <button type="button" class="step-btn step-minus" data-target="fAmount" aria-label="Smanji" data-en-aria="Decrease">−</button>
             <input type="range" id="fAmount" min="100000" max="20000000" step="50000" value="2000000">
             <button type="button" class="step-btn step-plus" data-target="fAmount" aria-label="Povećaj" data-en-aria="Increase">+</button>
+          </div>
+          <div class="row row-exact">
+            <input type="number" class="exact" id="fAmountExact" min="100000" max="20000000" step="1" value="2000000" inputmode="numeric" aria-label="Unesi tačan iznos" data-en-aria="Enter exact amount">
             <span class="val" id="vAmount"></span>
           </div></div>
         <div class="field"><label for="fAdvance" data-en="Advance">Avans</label>
@@ -1003,6 +1023,29 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
     input.value = Math.min(max, Math.max(min, +input.value + dir*step));
     input.dispatchEvent(new Event('input', {bubbles:true}));
   }));
+
+  /* exact-value inputs (type an exact amount / number of months) */
+  function linkExact(rangeId, exactId){
+    const range = $(rangeId), exact = $(exactId);
+    if(!range || !exact) return;
+    const min = +range.min, max = +range.max;
+    exact.addEventListener('input', ()=>{
+      const v = +exact.value;
+      if(exact.value === '' || isNaN(v)) return;
+      if(v >= min && v <= max){
+        range.value = v;
+        range.dispatchEvent(new Event('input', {bubbles:true}));
+      }
+    });
+    exact.addEventListener('change', ()=>{
+      const v = Math.min(max, Math.max(min, +exact.value || min));
+      exact.value = v; range.value = v;
+      range.dispatchEvent(new Event('input', {bubbles:true}));
+    });
+    range.addEventListener('input', ()=>{ exact.value = range.value; });
+  }
+  [['aAmount','aAmountExact'],['aTerm','aTermExact'],['rAmount','rAmountExact'],['rTerm','rTermExact'],['fAmount','fAmountExact']]
+    .forEach(([r,e])=>linkExact(r,e));
 
   /* tabs */
   document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', ()=>{
