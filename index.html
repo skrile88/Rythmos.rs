@@ -681,8 +681,7 @@ footer{background:#0B1430;color:#8B9BC4;padding:3.6rem 0 2rem}
             <button type="button" class="step-btn step-plus" data-target="aAmount" aria-label="Povećaj" data-en-aria="Increase">+</button>
           </div>
           <div class="row row-exact">
-            <input type="number" class="exact" id="aAmountExact" min="100000" max="30000000" step="1" value="3000000" inputmode="numeric" aria-label="Unesi tačan iznos" data-en-aria="Enter exact amount">
-            <span class="val" id="aVAmount"></span>
+            <input type="text" class="exact" id="aAmountExact" inputmode="numeric" aria-label="Unesi tačan iznos" data-en-aria="Enter exact amount">
           </div></div>
         <div class="field"><label for="aRate" data-en="Interest rate (annual)">Kamatna stopa (godišnja)</label>
           <div class="row"><input type="range" id="aRate" min="1" max="20" step="0.1" value="6"><span class="val" id="aVRate"></span></div></div>
@@ -719,8 +718,7 @@ footer{background:#0B1430;color:#8B9BC4;padding:3.6rem 0 2rem}
             <button type="button" class="step-btn step-plus" data-target="rAmount" aria-label="Povećaj" data-en-aria="Increase">+</button>
           </div>
           <div class="row row-exact">
-            <input type="number" class="exact" id="rAmountExact" min="100000" max="30000000" step="1" value="3000000" inputmode="numeric" aria-label="Unesi tačan iznos" data-en-aria="Enter exact amount">
-            <span class="val" id="rVAmount"></span>
+            <input type="text" class="exact" id="rAmountExact" inputmode="numeric" aria-label="Unesi tačan iznos" data-en-aria="Enter exact amount">
           </div></div>
         <div class="field"><label for="rRate" data-en="Interest rate (annual)">Kamatna stopa (godišnja)</label>
           <div class="row"><input type="range" id="rRate" min="1" max="20" step="0.1" value="6"><span class="val" id="rVRate"></span></div></div>
@@ -757,8 +755,7 @@ footer{background:#0B1430;color:#8B9BC4;padding:3.6rem 0 2rem}
             <button type="button" class="step-btn step-plus" data-target="fAmount" aria-label="Povećaj" data-en-aria="Increase">+</button>
           </div>
           <div class="row row-exact">
-            <input type="number" class="exact" id="fAmountExact" min="100000" max="20000000" step="1" value="2000000" inputmode="numeric" aria-label="Unesi tačan iznos" data-en-aria="Enter exact amount">
-            <span class="val" id="vAmount"></span>
+            <input type="text" class="exact" id="fAmountExact" inputmode="numeric" aria-label="Unesi tačan iznos" data-en-aria="Enter exact amount">
           </div></div>
         <div class="field"><label for="fAdvance" data-en="Advance">Avans</label>
           <div class="row"><input type="range" id="fAdvance" min="50" max="95" step="1" value="80"><span class="val" id="vAdvance"></span></div></div>
@@ -1024,7 +1021,7 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
     input.dispatchEvent(new Event('input', {bubbles:true}));
   }));
 
-  /* exact-value inputs (type an exact amount / number of months) */
+  /* exact-value inputs (type an exact number of months) */
   function linkExact(rangeId, exactId){
     const range = $(rangeId), exact = $(exactId);
     if(!range || !exact) return;
@@ -1044,8 +1041,36 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
     });
     range.addEventListener('input', ()=>{ exact.value = range.value; });
   }
-  [['aAmount','aAmountExact'],['aTerm','aTermExact'],['rAmount','rAmountExact'],['rTerm','rTermExact'],['fAmount','fAmountExact']]
-    .forEach(([r,e])=>linkExact(r,e));
+  [['aTerm','aTermExact'],['rTerm','rTermExact']].forEach(([r,e])=>linkExact(r,e));
+
+  /* exact-value inputs (type an exact amount, formatted with thousands separators) */
+  const groupThousands = digits => digits.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  function linkExactAmount(rangeId, exactId){
+    const range = $(rangeId), exact = $(exactId);
+    if(!range || !exact) return;
+    const min = +range.min, max = +range.max;
+    const setFromRange = () => { exact.value = groupThousands(String(range.value)); };
+    exact.addEventListener('input', ()=>{
+      const digits = exact.value.replace(/\D/g,'');
+      exact.value = groupThousands(digits);
+      if(digits === '') return;
+      const v = +digits;
+      if(v >= min && v <= max){
+        range.value = v;
+        range.dispatchEvent(new Event('input', {bubbles:true}));
+      }
+    });
+    exact.addEventListener('change', ()=>{
+      const digits = exact.value.replace(/\D/g,'');
+      const v = Math.min(max, Math.max(min, digits === '' ? min : +digits));
+      range.value = v;
+      range.dispatchEvent(new Event('input', {bubbles:true}));
+    });
+    range.addEventListener('input', setFromRange);
+    setFromRange();
+  }
+  [['aAmount','aAmountExact'],['rAmount','rAmountExact'],['fAmount','fAmountExact']]
+    .forEach(([r,e])=>linkExactAmount(r,e));
 
   /* tabs */
   document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', ()=>{
@@ -1058,7 +1083,7 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   /* anuitet */
   function calcA(){
     const P=+$('aAmount').value, r=+$('aRate').value/100/12, n=+$('aTerm').value;
-    $('aVAmount').textContent=fmt(P); $('aVRate').textContent=pct(+$('aRate').value); $('aVTerm').textContent=yrs(n);
+    $('aVRate').textContent=pct(+$('aRate').value); $('aVTerm').textContent=yrs(n);
     const A = r>0 ? P*r/(1-Math.pow(1+r,-n)) : P/n;
     const tot=A*n, itr=tot-P;
     $('aOut').textContent=fmt(A); $('aInt').textContent=fmt(itr);
@@ -1069,7 +1094,7 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   /* rate — jednaka glavnica */
   function calcR(){
     const P=+$('rAmount').value, r=+$('rRate').value/100/12, n=+$('rTerm').value;
-    $('rVAmount').textContent=fmt(P); $('rVRate').textContent=pct(+$('rRate').value); $('rVTerm').textContent=yrs(n);
+    $('rVRate').textContent=pct(+$('rRate').value); $('rVTerm').textContent=yrs(n);
     const pp=P/n;
     const first=pp+P*r, last=pp+pp*r;
     const itr=r*P*(n+1)/2;
@@ -1082,7 +1107,6 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   function calcF(){
     const A=+$('fAmount').value, adv=+$('fAdvance').value/100,
           fee=+$('fFee').value/100, rate=+$('fRate').value/100, days=+$('fDays').value;
-    $('vAmount').textContent=fmt(A);
     $('vAdvance').textContent=Math.round(adv*100)+'%';
     const feeVal=(+$('fFee').value).toFixed(1);
     $('vFee').textContent=(window.currentLang==='en'?feeVal:feeVal.replace('.',','))+'%';
