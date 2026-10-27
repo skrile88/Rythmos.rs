@@ -80,6 +80,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:90;background:rgba(250,250,247,.
 /* ---------- hero ---------- */
 header{background:var(--navy);color:#fff;padding:9.5rem 0 0;position:relative;overflow:hidden}
 .hero-grid{max-width:1180px;margin:0 auto;padding:0 2rem;position:relative;z-index:2}
+.hero-new{display:inline-flex;align-items:center;gap:.7rem;max-width:100%;margin-bottom:1.8rem;padding:.35rem .9rem .35rem .35rem;border:1px solid rgba(176,138,62,.45);border-radius:999px;background:rgba(176,138,62,.1);color:#fff;text-decoration:none;font-size:.88rem;transition:background .2s,border-color .2s}
+.hero-new:hover{background:rgba(176,138,62,.2);border-color:var(--gold)}
+.hero-new .new-tag{flex-shrink:0;background:var(--gold);color:var(--navy);font-family:var(--mono);font-size:.64rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:.28rem .6rem;border-radius:999px}
+.hero-new .new-arrow{color:var(--gold);transition:transform .2s}
+.hero-new:hover .new-arrow{transform:translateX(3px)}
+@media(max-width:480px){.hero-new{font-size:.8rem;gap:.5rem}}
 .hero-eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:.7rem;margin-bottom:1.6rem}
 .hero-eyebrow .dot{width:7px;height:7px;border-radius:50%;background:#3FBF7F;box-shadow:0 0 0 0 rgba(63,191,127,.5);animation:pulse 2.4s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(63,191,127,.45)}70%{box-shadow:0 0 0 9px rgba(63,191,127,0)}100%{box-shadow:0 0 0 0 rgba(63,191,127,0)}}
@@ -396,6 +402,7 @@ footer{background:#0B1430;color:#8B9BC4;padding:3.6rem 0 2rem}
 
 <header id="top">
   <div class="hero-grid">
+    <a class="hero-new" href="#research"><span class="new-tag" data-en="New">Novo</span><span data-en="Serbia’s banking sector in numbers">Bankarski sektor Srbije u brojkama</span><span class="new-arrow" aria-hidden="true">→</span></a>
     <div class="hero-eyebrow"><span class="dot" aria-hidden="true"></span> <span data-en="In production in Serbia’s financial sector">U produkciji u finansijskom sektoru Srbije</span></div>
     <h1 data-en="Software banks <em>actually</em> use.">Softver koji banke <em>zaista</em> koriste.</h1>
     <p class="hero-sub" data-en="Your credit process, visible from campaign to payout. Factoring calculations without manual spreadsheets. AI that sends your data to no one. Built by people who ran these exact processes inside a bank for 15+ years.">Vaš kreditni proces vidljiv od kampanje do isplate. Faktoring obračuni bez ručnih tabela. AI koji ne šalje podatke nikome. Sisteme grade ljudi koji su te procese vodili u banci, 15+ godina.</p>
