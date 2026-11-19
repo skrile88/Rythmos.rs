@@ -338,6 +338,11 @@ footer{background:#0B1430;color:#8B9BC4;padding:3.6rem 0 2rem}
 .foot-bottom{display:flex;justify-content:space-between;padding-top:1.6rem;font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:#54679B;flex-wrap:wrap;gap:.6rem}
 /* ---------- workflow lite ---------- */
 .wl{background:var(--cream);border-top:1px solid var(--line)}
+.wl-clients{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem 1.4rem;margin:-1.6rem 0 2.4rem;padding:1rem 1.3rem;background:var(--paper);border:1px solid var(--line);border-left:2px solid var(--gold);border-radius:6px}
+.wl-clients .lbl{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.wl-clients ul{display:flex;flex-wrap:wrap;gap:.4rem 1.6rem;list-style:none}
+.wl-clients li{font-family:var(--serif);font-size:1.08rem;font-weight:500;color:var(--navy)}
+.wl-clients + .wl-stages{margin-top:0}
 .wl-stages{display:flex;flex-wrap:wrap;gap:.5rem;margin:-1.6rem 0 2.6rem;list-style:none}
 .wl-stages li{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;color:var(--navy);background:#fff;border:1px solid var(--line);border-radius:4px;padding:.4rem .75rem}
 .wl-stages li b{color:var(--gold);font-weight:500;margin-right:.35rem}
@@ -1030,7 +1035,16 @@ footer{background:#0B1430;color:#8B9BC4;padding:3.6rem 0 2rem}
     <div class="sec-head reveal">
       <div class="eyebrow">RY–02 · Rythmós Workflow Lite</div>
       <h2 data-en="A credit process without an IT project.">Kreditni proces bez IT projekta.</h2>
-      <p data-en="From application intake to payout — in one application, instead of emails and spreadsheets. For institutions that want order in the process this month, not after a tender. In production in several banks in Serbia.">Od prijema zahteva do isplate — u jednoj aplikaciji, umesto u mejlovima i tabelama. Za institucije koje red u procesu žele ovog meseca, a ne posle tendera. U produkciji u više banaka u Srbiji.</p>
+      <p data-en="From application intake to payout — in one application, instead of emails and spreadsheets. For institutions that want order in the process this month, not after a tender. In production in banks and a leasing company in Serbia and North Macedonia.">Od prijema zahteva do isplate — u jednoj aplikaciji, umesto u mejlovima i tabelama. Za institucije koje red u procesu žele ovog meseca, a ne posle tendera. U produkciji u bankama i lizing kući u Srbiji i Severnoj Makedoniji.</p>
+    </div>
+    <div class="wl-clients reveal">
+      <span class="lbl" data-en="Used by">Koriste ga</span>
+      <ul>
+        <li>Eurobank Beograd</li>
+        <li>ALTA Banka Beograd</li>
+        <li>ALTA Leasing</li>
+        <li>ALTA Banka Bitola</li>
+      </ul>
     </div>
     <ul class="wl-stages reveal" aria-label="Kartice službi" data-en-aria="Department tabs">
       <li data-en="<b>1</b>Sales"><b>1</b>Prodaja</li>
