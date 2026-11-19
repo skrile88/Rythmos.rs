@@ -491,11 +491,14 @@ footer{background:#0B1430;color:#8B9BC4;padding:3.6rem 0 2rem}
 .fx-note b{color:#fff}
 
 /* ---------- CRM ---------- */
-.crm{background:var(--paper);border-top:1px solid var(--line)}
-.crm .wl-stages{margin:-1.6rem 0 2.4rem}
-.crm .os-mini{margin:0 0 2.6rem}
-.crm-foot .lic{color:var(--ink-3)}
-.crm-foot .lic b{color:var(--royal)}
+.crm-sec{border-top:1px solid var(--line-navy)}
+.crm-who{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:2.6rem;align-items:center;margin-top:3rem;padding:2rem 2.2rem;border:1px solid rgba(176,138,62,.35);border-radius:8px;background:linear-gradient(135deg,rgba(176,138,62,.12),rgba(176,138,62,.02) 60%)}
+@media(max-width:900px){.crm-who{grid-template-columns:1fr;gap:1.6rem;padding:1.5rem}}
+.crm-who h3{font-family:var(--serif);font-weight:500;font-size:1.55rem;line-height:1.22;color:#fff;margin-bottom:.8rem}
+.crm-who p{font-size:.95rem;color:#AFBBD9}
+.crm-who-list{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem}
+.crm-who-list li{font-size:.86rem;color:#C9D2EA;border:1px solid var(--line-navy);background:rgba(255,255,255,.03);border-radius:999px;padding:.38rem .85rem}
+.crm-who-list li.core{color:var(--gold);border-color:rgba(176,138,62,.55);background:rgba(176,138,62,.1)}
 @media(max-width:560px){.hero-stats{gap:1.6rem 2.4rem}}
 
 /* nav: more products, keep it on one line */
@@ -645,9 +648,9 @@ footer{background:#0B1430;color:#8B9BC4;padding:3.6rem 0 2rem}
           <div class="prod-name">Rythmós CRM</div>
           <div class="prod-tag" data-en="Who to call today — and what was promised last time.">Koga danas zvati — i šta je prošli put obećano.</div>
         </div>
-        <div class="prod-desc" data-en="Sales campaigns, client relationships and opportunities for banks, leasing and factoring companies: a company register, campaigns with bulk assignment, a daily worklist and a weighted sales pipeline — in one place.<ul><li>Company register</li><li>Campaigns</li><li>Daily worklist</li><li>Sales pipeline</li><li>Weighted value</li><li>Excel reports</li></ul>">
-          Prodajne kampanje, odnosi sa klijentima i prodajne prilike za banke, lizing i faktoring kuće: registar firmi, kampanje sa masovnom dodelom, dnevna radna lista i ponderisani prodajni pipeline — na jednom mestu.
-          <ul><li>Registar firmi</li><li>Kampanje</li><li>Radna lista</li><li>Prodajni pipeline</li><li>Ponderisana vrednost</li><li>Izveštaji u Excelu</li></ul>
+        <div class="prod-desc" data-en="Sales campaigns, client relationships and opportunities: a company register, campaigns with bulk assignment, a daily worklist and a weighted sales pipeline — in one place. Built for banks, leasing and factoring, and suited to any company that sells to other companies.<ul><li>Company register</li><li>Campaigns</li><li>Daily worklist</li><li>Sales pipeline</li><li>Weighted value</li><li>Excel reports</li><li>Any B2B industry</li></ul>">
+          Prodajne kampanje, odnosi sa klijentima i prodajne prilike: registar firmi, kampanje sa masovnom dodelom, dnevna radna lista i ponderisani prodajni pipeline — na jednom mestu. Nastao za banke, lizing i faktoring, a pogodan za svaku firmu koja prodaje drugim firmama.
+          <ul><li>Registar firmi</li><li>Kampanje</li><li>Radna lista</li><li>Prodajni pipeline</li><li>Ponderisana vrednost</li><li>Izveštaji u Excelu</li><li>Za svaku B2B delatnost</li></ul>
         </div>
         <span class="badge live" data-en="In production">U produkciji</span>
       </a>
@@ -1069,35 +1072,233 @@ footer{background:#0B1430;color:#8B9BC4;padding:3.6rem 0 2rem}
   </div>
 </section>
 
-<section class="crm" id="crm">
+<section class="feature crm-sec" id="crm">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="eyebrow">RY–03 · Rythmós CRM</div>
       <h2 data-en="Who calls which company, what happens next, and how much is in the pipeline?">Ko zove koju firmu, šta je sledeći korak i koliko vredi otvorena prodaja?</h2>
-      <p data-en="Rythmós CRM connects the company register, campaigns and sales opportunities for banks, leasing and factoring companies. Sales reps know whom to call today and what was agreed last time. Managers see who is responsible for each company and where work is stuck. Executives see what has been won, what is still open and how each campaign is performing.">Rythmós CRM povezuje registar firmi, kampanje i prodajne prilike za banke, lizing i faktoring kuće. Komercijalista zna koga danas zove i šta je prošli put dogovoreno. Menadžer vidi ko je zadužen za koju firmu i gde obrada stoji. Uprava prati šta je dobijeno, šta je još otvoreno i kakav rezultat donosi svaka kampanja.</p>
+      <p data-en="A company register, campaigns, a daily worklist and a sales pipeline — in one system. Sales reps know whom to call today and what was agreed last time. Managers see who is responsible for each company and where work is stuck. The board sees what has been won, what is still open and what each campaign delivered.">Registar firmi, kampanje, dnevna radna lista i prodajni pipeline — u jednom sistemu. Komercijalista zna koga danas zove i šta je prošli put dogovoreno. Menadžer vidi ko je zadužen za koju firmu i gde obrada stoji. Uprava vidi šta je dobijeno, šta je još otvoreno i šta je donela svaka kampanja.</p>
     </div>
-    <ul class="wl-stages crm-flow reveal" aria-label="Tok prodaje" data-en-aria="Sales flow">
-      <li data-en="<b>1</b>Register"><b>1</b>Registar</li>
-      <li data-en="<b>2</b>Campaign"><b>2</b>Kampanja</li>
-      <li data-en="<b>3</b>Worklist"><b>3</b>Radna lista</li>
-      <li data-en="<b>4</b>Contact"><b>4</b>Kontakt</li>
-      <li class="on" data-en="<b>5</b>Opportunity"><b>5</b>Prilika</li>
-      <li data-en="<b>6</b>Won"><b>6</b>Dobijeno</li>
-    </ul>
-    <div class="os-mini two">
-      <figure class="reveal"><div class="shot"><div class="shot-bar"><i></i><i></i><i></i><span>crm · kampanje</span></div><img src="assets/crm-kampanje.webp" alt="Kampanja sa ciljnim brojem firmi, konverzijom i radnom listom" data-en-alt="Campaign with target count, conversion and worklist" loading="lazy" width="1536" height="1024"></div><figcaption data-en="<b>Campaigns and daily worklist.</b> Illustrative view."><b>Kampanje i radna lista.</b> Ilustrativni prikaz.</figcaption></figure>
-      <figure class="reveal"><div class="shot"><div class="shot-bar"><i></i><i></i><i></i><span>crm · prodajne prilike</span></div><img src="assets/crm-pipeline.webp" alt="Prodajne prilike po fazama: kvalifikacija, ponuda, pregovori, dobijeno" data-en-alt="Sales opportunities by stage: qualification, offer, negotiation, won" loading="lazy" width="1536" height="1024"></div><figcaption data-en="<b>Sales opportunities by stage.</b> Illustrative view."><b>Prodajne prilike po fazama.</b> Ilustrativni prikaz.</figcaption></figure>
+
+    <div class="fx-stats reveal">
+      <div class="fx-stat fx-stat-lead"><b>1</b><span data-en="active assignment per company — guaranteed by the database">aktivno zaduženje po firmi — garantuje baza</span></div>
+      <div class="fx-stat"><b>5</b><span data-en="roles · 5 home screens">uloga · 5 početnih ekrana</span></div>
+      <div class="fx-stat"><b>6</b><span data-en="pipeline stages">faza prodajnog pipeline-a</span></div>
+      <div class="fx-stat"><b>0</b><span data-en="open deals without a next step">otvorenih prilika bez sledećeg koraka</span></div>
+      <div class="fx-stat"><b>651</b><span data-en="activity codes · KD 2025">šifra delatnosti · KD 2025</span></div>
+      <div class="fx-stat"><b>190+</b><span data-en="automated tests">automatskih testova</span></div>
     </div>
-    <div class="wl-grid crm-grid">
-      <div class="wl-card reveal" data-en="<span class='ch'>Register</span><h3>Company register and segmentation</h3><p>Search by name, registration number or tax ID. Filter companies by industry, location, record status, referral or assigned employee to build a target group without assembling a separate spreadsheet.</p>"><span class="ch">Registar</span><h3>Registar firmi i segmentacija</h3><p>Pretražite firme po nazivu, matičnom broju ili PIB-u. Složite ciljnu grupu po delatnosti, lokaciji, statusu, preporučiocu ili nadležnom zaposlenom, bez sastavljanja posebne tabele.</p></div>
-      <div class="wl-card reveal" data-en="<span class='ch'>Company record</span><h3>Company record and contact history</h3><p>Keep contacts, referrals, lead sources, calls, meetings and agreements in one record. Before calling, see who spoke to the client, the outcome, what was promised and who is responsible for the deadline.</p>"><span class="ch">Dosije</span><h3>Dosije firme i istorija kontakata</h3><p>Kontakti, preporuke, izvori upita, pozivi, sastanci i dogovori ostaju u istom dosijeu. Pre razgovora vidite ko je kontaktirao klijenta, kakav je bio ishod, šta je obećano i ko je odgovoran za rok.</p></div>
-      <div class="wl-card reveal" data-en="<span class='ch'>Campaigns</span><h3>Campaigns and bulk assignment</h3><p>Lock in the target list when launching a campaign. Assign selected or filtered companies in bulk, or distribute work across the team. Each company can have only one active assignment, preventing duplicate outreach across campaigns.</p>"><span class="ch">Kampanje</span><h3>Kampanje i masovna dodela</h3><p>Pri pokretanju kampanje fiksirajte ciljnu listu. Dodelite označene ili filtrirane firme odjednom, ili raspodelite posao timu. Jedno aktivno zaduženje po firmi sprečava da je dve kampanje istovremeno zaduže za kontakt.</p></div>
-      <div class="wl-card reveal" data-en="<span class='ch'>Worklist</span><h3>Daily worklist and follow-ups</h3><p>Reps see their companies and follow-ups due today. Recording an outcome from the worklist or the company record updates the campaign when applicable. Deferred contacts return to the worklist on their scheduled date.</p>"><span class="ch">Radna lista</span><h3>Dnevna radna lista i ponovni kontakti</h3><p>Komercijalista vidi svoje firme i kontakte koji su na redu danas. Ishod iz radne liste ili dosijea ažurira status u kampanji kada su ispunjeni uslovi. Odloženi kontakti vraćaju se na listu na zakazani dan.</p></div>
-      <div class="wl-card reveal" data-en="<span class='ch'>Pipeline</span><h3>Pipeline and weighted value</h3><p>Track each opportunity by stage, EUR value and probability. Every open opportunity needs a next step and a date. Compare nominal and probability-weighted pipeline values, and record why a deal was lost.</p>"><span class="ch">Pipeline</span><h3>Prodajni pipeline i ponderisana vrednost</h3><p>Pratite prilike po fazi, vrednosti u EUR i verovatnoći realizacije. Svaka otvorena prilika ima sledeći korak i termin. Uporedite nominalnu i ponderisanu vrednost pipeline-a i zabeležite zašto je posao izgubljen.</p></div>
-      <div class="wl-card reveal" data-en="<span class='ch'>Management</span><h3>Management reporting and access</h3><p>Review conversion, closed sales and market coverage, with breakdowns by campaign, team, product or referrer. Export reports to Excel and control which company records sales reps can see.</p>"><span class="ch">Uprava</span><h3>Izveštaji za upravu i pristup po ulozi</h3><p>Pratite konverziju, realizovanu prodaju i pokrivenost tržišta, uz preglede po kampanji, timu, proizvodu ili preporučiocu. Izvezite izveštaje u Excel i podesite koje firme komercijalisti mogu da vide.</p></div>
+
+    <!-- ===== Za koga ===== -->
+    <div class="crm-who reveal">
+      <div class="crm-who-text">
+        <span class="fx-kicker" data-en="Not just for finance">Ne samo za finansije</span>
+        <h3 data-en="Built inside banking. Works for anyone who sells to companies.">Nastao u bankarstvu. Radi za svakoga ko prodaje firmama.</h3>
+        <p data-en="Rythmós CRM was designed for the sales teams of banks, leasing and factoring companies — but at its core it’s a B2B sales system: a register of legal entities, campaigns, contact history and a pipeline. Products are a list you define yourself — a loan, a software license, a maintenance contract, an insurance policy, a distribution agreement — without a single line of code. If your clients are companies, the system fits.">Rythmós CRM je projektovan za prodajne timove banaka, lizing i faktoring kuća — ali je u osnovi sistem za B2B prodaju: registar pravnih lica, kampanje, istorija kontakata i pipeline. Proizvodi su šifarnik koji sami definišete — kredit, softverska licenca, ugovor o održavanju, polisa osiguranja, ugovor o distribuciji — bez ijedne linije koda. Ako su vaši klijenti firme, sistem vam odgovara.</p>
+      </div>
+      <ul class="crm-who-list" aria-label="Delatnosti" data-en-aria="Industries">
+        <li class="core" data-en="Banks">Banke</li>
+        <li class="core" data-en="Leasing">Lizing</li>
+        <li class="core" data-en="Factoring">Faktoring</li>
+        <li data-en="Insurance">Osiguranje</li>
+        <li data-en="IT and software">IT i softver</li>
+        <li data-en="Telecommunications">Telekomunikacije</li>
+        <li data-en="Wholesale and distribution">Veleprodaja i distribucija</li>
+        <li data-en="B2B manufacturing">Proizvodnja za firme</li>
+        <li data-en="Energy and utilities">Energetika</li>
+        <li data-en="Logistics and transport">Logistika i transport</li>
+        <li data-en="Consulting and audit">Konsalting i revizija</li>
+        <li data-en="Agencies and business services">Agencije i poslovne usluge</li>
+      </ul>
     </div>
-    <div class="feat-foot crm-foot reveal">
-      <span class="lic" data-en="In production · sales teams in banks, leasing and factoring">U produkciji · prodajni timovi banaka, lizing i faktoring kuća</span>
+
+    <!-- ===== Pregled ===== -->
+    <div class="os-block" style="margin-top:4.2rem">
+      <div class="os-head reveal">
+        <h3 data-en="<span class='os-fx'>Overview</span>The manager’s morning, on one screen"><span class="os-fx">Pregled</span>Jutro menadžera prodaje, na jednom ekranu</h3>
+        <p data-en="Calls and meetings this week, open agreements and missed deadlines, what was won this quarter, and the state of every company in the active campaign. On the right — what needs attention: deals without a next step, missed deadlines, unassigned companies, companies with no one responsible.">Pozivi i sastanci ove nedelje, otvoreni dogovori i probijeni rokovi, šta je dobijeno u kvartalu i stanje svake firme u aktivnoj kampanji. Desno — šta zahteva pažnju: prilike bez sledećeg koraka, probijeni rokovi, nedodeljene firme i firme bez nadležnog zaposlenog.</p>
+      </div>
+      <div class="shot reveal"><div class="shot-bar"><i></i><i></i><i></i><span>crm · kontrolna tabla · menadžer</span></div><img src="assets/crm/menadzer-dashboard.webp" alt="Kontrolna tabla menadžera prodaje: aktivnosti, dogovori, dobijeno u kvartalu, status kampanje i učinak tima" data-en-alt="Sales manager dashboard: activity, agreements, quarterly wins, campaign status and team performance" loading="lazy" width="1920" height="1080"></div>
+    </div>
+
+    <!-- ===== Tok ===== -->
+    <div class="os-block">
+      <div class="os-head reveal">
+        <h3 data-en="<span class='os-fx'>Interactive · 6 steps</span>From a company in the register to a signed deal"><span class="os-fx">Interaktivno · 6 koraka</span>Od firme u registru do potpisanog posla</h3>
+        <p data-en="Click a step to see what the system does at that moment — and what it doesn’t let happen.">Kliknite korak i vidite šta sistem radi u tom trenutku — i šta ne dozvoljava da se desi.</p>
+      </div>
+      <div class="fx-flow reveal">
+        <ol class="fx-steps" role="tablist" aria-label="Koraci prodaje" data-en-aria="Sales steps">
+          <li><button type="button" role="tab" class="fx-step active" aria-selected="true" data-step="0"><span class="n">01</span><span data-en="Register">Registar</span></button></li>
+          <li><button type="button" role="tab" class="fx-step" aria-selected="false" data-step="1"><span class="n">02</span><span data-en="Campaign">Kampanja</span></button></li>
+          <li><button type="button" role="tab" class="fx-step" aria-selected="false" data-step="2"><span class="n">03</span><span data-en="Worklist">Radna lista</span></button></li>
+          <li><button type="button" role="tab" class="fx-step" aria-selected="false" data-step="3"><span class="n">04</span><span data-en="Company record">Dosije</span></button></li>
+          <li><button type="button" role="tab" class="fx-step" aria-selected="false" data-step="4"><span class="n">05</span><span data-en="Opportunity">Prilika</span></button></li>
+          <li><button type="button" role="tab" class="fx-step" aria-selected="false" data-step="5"><span class="n">06</span><span data-en="Result">Rezultat</span></button></li>
+        </ol>
+        <div class="fx-panes">
+          <div class="fx-pane active" role="tabpanel" data-pane="0">
+            <div class="fx-text">
+              <span class="fx-kicker" data-en="Step 01 · Company register">Korak 01 · Registar firmi</span>
+              <h4 data-en="The market in one list — not in ten spreadsheets.">Tržište na jednoj listi — ne u deset tabela.</h4>
+              <ul class="fx-did">
+                <li data-en="Search by name, registration number or tax ID — names without diacritics work too">Pretraga po nazivu, matičnom broju ili PIB-u — naziv i bez dijakritika</li>
+                <li data-en="Filters: size, municipality, activity, revenue, legal status, referral, responsible employee">Filteri: veličina, opština, delatnost, prihod, pravni status, preporuka, nadležni zaposleni</li>
+                <li data-en="Registration number and tax ID checked on entry — no duplicate companies">Matični broj i PIB provereni pri unosu — nema duplih firmi</li>
+                <li data-en="Every change is recorded in the company’s history; closed companies are archived with a reason, never lost">Svaka izmena ide u istoriju firme; ugašene firme se arhiviraju sa razlogom, ne nestaju</li>
+              </ul>
+            </div>
+            <div class="shot"><div class="shot-bar"><i></i><i></i><i></i><span>crm · registar firmi</span></div><img src="assets/crm/firme.webp" alt="Registar firmi sa filterima" data-en-alt="Company register with filters" loading="lazy" width="1920" height="1080"></div>
+          </div>
+          <div class="fx-pane" role="tabpanel" data-pane="1" hidden>
+            <div class="fx-text">
+              <span class="fx-kicker" data-en="Step 02 · Campaign">Korak 02 · Kampanja</span>
+              <h4 data-en="A target group in a few clicks — frozen at launch.">Ciljna grupa u nekoliko klikova — zamrznuta pri pokretanju.</h4>
+              <ul class="fx-did">
+                <li data-en="Target group from the same filters as the register, optionally excluding companies contacted recently">Ciljna grupa iz istih filtera kao registar, uz izuzimanje firmi kontaktiranih skoro</li>
+                <li data-en="The list is frozen at launch — later changes in the register don’t change the campaign’s scope">Spisak se zamrzava pri pokretanju — kasnije promene u registru ne menjaju obuhvat</li>
+                <li data-en="Bulk assignment or automatic distribution across the team">Masovna dodela ili automatska raspodela po timu</li>
+                <li data-en="Status of every company and performance of every rep, live">Status svake firme i učinak svakog komercijaliste, uživo</li>
+              </ul>
+            </div>
+            <div class="shot"><div class="shot-bar"><i></i><i></i><i></i><span>crm · kampanja</span></div><img src="assets/crm/kampanja.webp" alt="Kampanja: obuhvat, obrađenost, realizovano, status firmi i učinak po komercijalisti" data-en-alt="Campaign: scope, progress, wins, company status and performance per rep" loading="lazy" width="1920" height="1080"></div>
+          </div>
+          <div class="fx-pane" role="tabpanel" data-pane="2" hidden>
+            <div class="fx-text">
+              <span class="fx-kicker" data-en="Step 03 · Daily worklist">Korak 03 · Dnevna radna lista</span>
+              <h4 data-en="The rep opens one screen and starts calling.">Komercijalista otvori jedan ekran i počne da zove.</h4>
+              <ul class="fx-did">
+                <li data-en="Order: scheduled contacts first, then never contacted, then longest without contact">Redosled: zakazani kontakti, pa nikad kontaktirane, pa najduže bez kontakta</li>
+                <li data-en="Contacts with a phone number one click away">Kontakti sa brojem telefona na jedan klik</li>
+                <li data-en="Outcome with a single key — the status in the campaign updates itself">Ishod jednim tasterom — status u kampanji se ažurira sam</li>
+                <li data-en="A deferred contact comes back to the list on the scheduled day">Odložen kontakt se vraća na listu na zakazani dan</li>
+              </ul>
+            </div>
+            <div class="shot"><div class="shot-bar"><i></i><i></i><i></i><span>crm · moja radna lista</span></div><img src="assets/crm/radna-lista.webp" alt="Radna lista komercijaliste sa kontaktima i ishodom razgovora" data-en-alt="Sales rep worklist with contacts and call outcome" loading="lazy" width="1920" height="1080"></div>
+          </div>
+          <div class="fx-pane" role="tabpanel" data-pane="3" hidden>
+            <div class="fx-text">
+              <span class="fx-kicker" data-en="Step 04 · Company record">Korak 04 · Dosije firme</span>
+              <h4 data-en="Before the call: who spoke to them, and what was promised.">Pre poziva: ko je razgovarao sa njima i šta je obećano.</h4>
+              <ul class="fx-did">
+                <li data-en="A timeline of calls, meetings, emails, notes and changes">Hronologija poziva, sastanaka, mejlova, beleški i izmena</li>
+                <li data-en="Agreements with exactly one responsible person, a deadline and a status — missed deadlines are visible">Dogovori sa tačno jednim odgovornim licem, rokom i statusom — probijen rok se vidi</li>
+                <li data-en="Origin: who referred the company, or where the lead came from">Poreklo: ko je firmu preporučio ili odakle je stigao upit</li>
+                <li data-en="Contacts, campaigns and opportunities of that company in one place">Kontakti, kampanje i prilike te firme na jednom mestu</li>
+              </ul>
+            </div>
+            <div class="shot"><div class="shot-bar"><i></i><i></i><i></i><span>crm · dosije firme</span></div><img src="assets/crm/dosije.webp" alt="Dosije firme: hronologija, dogovori, kontakti, poreklo i kampanje" data-en-alt="Company record: timeline, agreements, contacts, origin and campaigns" loading="lazy" width="1920" height="1080"></div>
+          </div>
+          <div class="fx-pane" role="tabpanel" data-pane="4" hidden>
+            <div class="fx-text">
+              <span class="fx-kicker" data-en="Step 05 · Opportunity">Korak 05 · Prodajna prilika</span>
+              <h4 data-en="A pipeline that doesn’t lie.">Pipeline koji ne laže.</h4>
+              <ul class="fx-did">
+                <li data-en="Qualification → need confirmed → offer sent → negotiation → won or lost">Kvalifikacija → potreba utvrđena → ponuda poslata → pregovori → dobijeno ili izgubljeno</li>
+                <li data-en="Every open opportunity must have a next step and a date — overdue ones turn red">Svaka otvorena prilika mora imati sledeći korak i termin — zakasneli su crveni</li>
+                <li data-en="Nominal and probability-weighted value of the pipeline">Nominalna i ponderisana vrednost pipeline-a</li>
+                <li data-en="A lost deal requires a reason — so you know why you lose">Izgubljen posao traži razlog — da znate zašto gubite</li>
+              </ul>
+            </div>
+            <div class="shot"><div class="shot-bar"><i></i><i></i><i></i><span>crm · prodajne prilike</span></div><img src="assets/crm/prilike.webp" alt="Prodajne prilike po fazama sa iznosima i sledećim korakom" data-en-alt="Sales opportunities by stage with amounts and next steps" loading="lazy" width="1920" height="1080"></div>
+          </div>
+          <div class="fx-pane" role="tabpanel" data-pane="5" hidden>
+            <div class="fx-text">
+              <span class="fx-kicker" data-en="Step 06 · Result">Korak 06 · Rezultat</span>
+              <h4 data-en="Won — and the campaign already knows.">Dobijeno — i kampanja to već zna.</h4>
+              <ul class="fx-did">
+                <li data-en="A won opportunity marks the company as “won” in its campaign and releases the assignment">Dobijena prilika označava firmu kao „realizovano” u kampanji i oslobađa zaduženje</li>
+                <li data-en="Market coverage: how much of the market was contacted, is in the pipeline, became a client">Pokrivenost tržišta: koliko je kontaktirano, koliko je u pipeline-u, koliko je postalo klijent</li>
+                <li data-en="Results by campaign, team, product, region and referrer — exported to Excel">Rezultati po kampanji, timu, proizvodu, regionu i preporučiocu — izvoz u Excel</li>
+              </ul>
+            </div>
+            <div class="shot"><div class="shot-bar"><i></i><i></i><i></i><span>crm · pokrivenost tržišta</span></div><img src="assets/crm/pokrivenost.webp" alt="Pokrivenost tržišta po regionu i veličini firme" data-en-alt="Market coverage by region and company size" loading="lazy" width="1920" height="1080"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Uloge ===== -->
+    <div class="os-block">
+      <div class="os-head reveal">
+        <h3 data-en="<span class='os-fx'>Roles</span>One system. Everyone sees exactly what they need."><span class="os-fx">Uloge</span>Jedan sistem. Svako vidi tačno ono što mu treba.</h3>
+        <p data-en="Each role has its own home screen and its own permissions. The board sees results, not client records. A rep sees their own companies — or the whole team’s, if you decide so.">Svaka uloga ima svoj početni ekran i svoja prava. Uprava vidi rezultate, ne dosijee klijenata. Komercijalista vidi svoje firme — ili firme celog tima, ako tako odlučite.</p>
+      </div>
+      <div class="fx-gallery reveal">
+        <div class="fx-gtabs" role="tablist" aria-label="Pogled po ulozi" data-en-aria="View by role">
+          <button type="button" role="tab" class="fx-gtab active" aria-selected="true" data-g="0" data-en="Sales rep">Komercijalista</button>
+          <button type="button" role="tab" class="fx-gtab" aria-selected="false" data-g="1" data-en="Sales manager">Menadžer prodaje</button>
+          <button type="button" role="tab" class="fx-gtab" aria-selected="false" data-g="2" data-en="Board">Uprava</button>
+          <button type="button" role="tab" class="fx-gtab" aria-selected="false" data-g="3" data-en="Analyst">Analitičar</button>
+        </div>
+        <figure class="fx-gpane active" data-g="0"><div class="shot"><div class="shot-bar"><i></i><i></i><i></i><span>crm · komercijalista</span></div><img src="assets/crm/komercijalista-dashboard.webp" alt="Početni ekran komercijaliste" data-en-alt="Sales rep home screen" loading="lazy" width="1920" height="1080"></div><figcaption data-en="<b>Sales rep.</b> Today’s worklist, my deadlines, my pipeline and my wins this quarter — and a button that starts the worklist."><b>Komercijalista.</b> Današnja radna lista, moji rokovi, moj pipeline i moje dobijeno u kvartalu — i dugme koje pokreće radnu listu.</figcaption></figure>
+        <figure class="fx-gpane" data-g="1" hidden><div class="shot"><div class="shot-bar"><i></i><i></i><i></i><span>crm · menadžer prodaje</span></div><img src="assets/crm/menadzer-dashboard.webp" alt="Početni ekran menadžera prodaje" data-en-alt="Sales manager home screen" loading="lazy" width="1920" height="1080"></div><figcaption data-en="<b>Sales manager.</b> Campaigns, assignments and the team — plus everything that needs attention before it becomes a problem."><b>Menadžer prodaje.</b> Kampanje, dodele i tim — i sve što traži pažnju pre nego što postane problem.</figcaption></figure>
+        <figure class="fx-gpane" data-g="2" hidden><div class="shot"><div class="shot-bar"><i></i><i></i><i></i><span>crm · izvršni pregled</span></div><img src="assets/crm/uprava-dashboard.webp" alt="Izvršni pregled za upravu" data-en-alt="Executive overview for the board" loading="lazy" width="1920" height="1080"></div><figcaption data-en="<b>Board.</b> Won this quarter, campaign conversion, open and weighted pipeline, market coverage — read-only, without access to client records."><b>Uprava.</b> Dobijeno u kvartalu, konverzija kampanja, otvoren i ponderisan pipeline, pokrivenost tržišta — samo za čitanje, bez pristupa dosijeima klijenata.</figcaption></figure>
+        <figure class="fx-gpane" data-g="3" hidden><div class="shot"><div class="shot-bar"><i></i><i></i><i></i><span>crm · izveštaji</span></div><img src="assets/crm/izvestaji.webp" alt="Izveštaji: dobijeni poslovi, otvoreni pipeline, učinak tima, proizvodi i preporučioci" data-en-alt="Reports: won deals, open pipeline, team performance, products and referrers" loading="lazy" width="1920" height="1080"></div><figcaption data-en="<b>Analyst.</b> Won deals by month, pipeline by stage, team performance, products and referrers — for any period, exported to Excel."><b>Analitičar.</b> Dobijeni poslovi po mesecu, pipeline po fazama, učinak tima, proizvodi i preporučioci — za bilo koji period, uz izvoz u Excel.</figcaption></figure>
+      </div>
+    </div>
+
+    <!-- ===== Kad krene naopako ===== -->
+    <div class="os-block">
+      <div class="os-head reveal">
+        <h3 data-en="<span class='os-fx'>Edge cases</span>What spreadsheets and most CRMs let slip"><span class="os-fx">Granični slučajevi</span>Ono što tabele i većina CRM-ova propuste</h3>
+        <p data-en="Every sales team has lived through at least one of these. In Rythmós CRM, they can’t happen.">Svaki prodajni tim je bar jednom ovo doživeo. U Rythmós CRM-u ne može da se desi.</p>
+      </div>
+      <div class="feat-grid fx-cases reveal">
+        <div class="feat-cell"><span class="fx" data-en="Campaigns">Kampanje</span><h3 data-en="“Two campaigns want the same company.”">„Dve kampanje hoće istu firmu.”</h3><p data-en="Only one active assignment per company — guaranteed by the database itself. Whether overlapping campaigns are blocked or just flagged is a setting.">Samo jedno aktivno zaduženje po firmi — garantuje ga sama baza. Da li se preklapanje kampanja zabranjuje ili samo označava, stvar je podešavanja.</p></div>
+        <div class="feat-cell"><span class="fx" data-en="Concurrency">Istovremeni rad</span><h3 data-en="“Two managers assign the same company in the same second.”">„Dva menadžera u istoj sekundi dodeljuju istu firmu.”</h3><p data-en="The first assignment wins, the second gets a clear message. No two reps call the same client.">Prva dodela prolazi, druga dobija jasnu poruku. Dva komercijalista nikad ne zovu istog klijenta.</p></div>
+        <div class="feat-cell"><span class="fx" data-en="Team">Tim</span><h3 data-en="“A sales rep leaves the company.”">„Komercijalista napušta firmu.”</h3><p data-en="Deactivating the account releases all their assignments in the same step and ends their session. Nothing stays stuck with someone who’s gone.">Deaktivacija naloga u istom potezu oslobađa sva njegova zaduženja i prekida sesiju. Ništa ne ostaje zaglavljeno kod nekoga ko je otišao.</p></div>
+        <div class="feat-cell"><span class="fx" data-en="Scope">Obuhvat</span><h3 data-en="“The register changed after the campaign was launched.”">„Registar se promenio posle pokretanja kampanje.”</h3><p data-en="The list was frozen at launch. Results are measured against what was actually targeted.">Spisak je zamrznut pri pokretanju. Rezultat se meri prema onome što je zaista bilo cilj.</p></div>
+        <div class="feat-cell"><span class="fx" data-en="Pipeline">Pipeline</span><h3 data-en="“A deal sits in the pipeline for months with nothing happening.”">„Prilika mesecima stoji u pipeline-u i ništa se ne dešava.”</h3><p data-en="Not possible: every open opportunity has a next step and a date. Without them it isn’t saved — and overdue ones show up on the manager’s screen.">Ne može: svaka otvorena prilika ima sledeći korak i termin. Bez toga se ne čuva — a zakasnele se vide na ekranu menadžera.</p></div>
+        <div class="feat-cell"><span class="fx" data-en="Visibility">Vidljivost</span><h3 data-en="“A rep sees clients that aren’t theirs.”">„Komercijalista vidi klijente koji nisu njegovi.”</h3><p data-en="Visibility is a setting: all companies, the team’s companies, or only assigned ones. It applies to every list — and reports aren’t available to reps.">Vidljivost je podešavanje: sve firme, firme tima ili samo dodeljene. Važi za svaku listu — a izveštaji komercijalistima nisu dostupni.</p></div>
+        <div class="feat-cell"><span class="fx" data-en="Concurrency">Istovremeni rad</span><h3 data-en="“Two people edit the same company at once.”">„Dvoje menjaju istu firmu u isto vreme.”</h3><p data-en="The second save doesn’t overwrite the first without a trace — the user is told the record changed in the meantime.">Druga izmena ne pregazi prvu bez traga — korisnik vidi da je zapis u međuvremenu promenjen.</p></div>
+        <div class="feat-cell"><span class="fx" data-en="Data quality">Kvalitet podataka</span><h3 data-en="“The company went bankrupt — and is still in the campaign.”">„Firma je otišla u stečaj — a i dalje je u kampanji.”</h3><p data-en="Companies in liquidation, bankruptcy or archived don’t qualify for campaigns. Their history stays.">Firme u likvidaciji, stečaju ili arhivi ne ulaze u kampanje. Njihova istorija ostaje.</p></div>
+        <div class="feat-cell"><span class="fx" data-en="Board">Uprava</span><h3 data-en="“The board wants the numbers — not access to client data.”">„Uprava hoće brojke — ne pristup podacima klijenata.”</h3><p data-en="The board role sees results and campaigns, but not the register, company records or the worklist.">Uloga uprave vidi rezultate i kampanje, ali ne i registar, dosijee ni radnu listu.</p></div>
+      </div>
+    </div>
+
+    <!-- ===== Ostatak ===== -->
+    <div class="os-block">
+      <div class="os-head reveal">
+        <h3 data-en="<span class='os-fx'>Everything else</span>The rest of the toolbox"><span class="os-fx">Sve ostalo</span>Ostatak alata</h3>
+        <p data-en="What a sales team uses every day — and what IT asks before it says yes.">Ono što prodajni tim koristi svakog dana — i ono što IT pita pre nego što kaže da.</p>
+      </div>
+      <div class="fx-caps reveal">
+        <div class="fx-cap"><h4 data-en="Register">Registar</h4><ul>
+          <li data-en="Legal entities with registration number, tax ID, activity, size and revenue">Pravna lica sa matičnim brojem, PIB-om, delatnošću, veličinom i prihodom</li>
+          <li data-en="Activity codes per KD 2025, municipalities and regions">Šifarnik delatnosti po KD 2025, opštine i regioni</li>
+          <li data-en="Teams and a responsible employee per company">Timovi i nadležni zaposleni po firmi</li>
+          <li data-en="History of every change">Istorija svake izmene</li></ul></div>
+        <div class="fx-cap"><h4 data-en="Relationships">Odnosi</h4><ul>
+          <li data-en="Contacts with a primary person">Kontakti sa primarnom osobom</li>
+          <li data-en="Calls, meetings, emails and notes">Pozivi, sastanci, mejlovi i beleške</li>
+          <li data-en="Agreements with a deadline and a responsible person">Dogovori sa rokom i odgovornim licem</li>
+          <li data-en="Referrers and lead sources, with conversion">Preporučioci i izvori upita, sa konverzijom</li></ul></div>
+        <div class="fx-cap"><h4 data-en="Sales">Prodaja</h4><ul>
+          <li data-en="Campaigns with a frozen target list">Kampanje sa zamrznutim spiskom</li>
+          <li data-en="Bulk assignment and distribution across the team">Masovna dodela i raspodela timu</li>
+          <li data-en="Kanban pipeline with probability">Kanban pipeline sa verovatnoćom</li>
+          <li data-en="Product list you define yourself">Šifarnik proizvoda koji sami definišete</li></ul></div>
+        <div class="fx-cap"><h4 data-en="Analytics">Analitika</h4><ul>
+          <li data-en="Won deals by month, product and region">Dobijeni poslovi po mesecu, proizvodu i regionu</li>
+          <li data-en="Team performance and success rate">Učinak tima i stopa uspeha</li>
+          <li data-en="Market coverage">Pokrivenost tržišta</li>
+          <li data-en="Excel export">Izvoz u Excel</li></ul></div>
+        <div class="fx-cap"><h4 data-en="Control">Kontrola</h4><ul>
+          <li data-en="Roles: administrator, board, sales manager, sales rep, analyst">Uloge: administrator, uprava, menadžer prodaje, komercijalista, analitičar</li>
+          <li data-en="Visibility of companies as a setting">Vidljivost firmi kao podešavanje</li>
+          <li data-en="Deactivated account loses access immediately">Deaktiviran nalog odmah gubi pristup</li>
+          <li data-en="No public sign-up — accounts are created by the administrator">Nema javne registracije — naloge pravi administrator</li></ul></div>
+        <div class="fx-cap"><h4 data-en="Platform">Platforma</h4><ul>
+          <li data-en="A separate instance and database for every client">Posebna instanca i baza za svakog klijenta</li>
+          <li data-en="Your company name and logo">Naziv i logo vaše kompanije</li>
+          <li data-en="Your own mail server (SMTP)">Sopstveni mejl server (SMTP)</li>
+          <li data-en="Light and dark mode · 190+ tests · independent code review">Svetli i tamni režim · 190+ testova · nezavisna provera koda</li></ul></div>
+      </div>
+    </div>
+
+    <div class="feat-foot reveal">
+      <span class="lic" data-en="<b>In production</b> · banks, leasing, factoring — and every company that sells to companies"><b>U produkciji</b> · banke, lizing, faktoring — i svaka firma koja prodaje firmama</span>
       <a class="btn btn-gold" href="mailto:rythmos360view@outlook.com?subject=Rythmos%20CRM%20demo" data-en="Request a CRM demo">Zakaži CRM demo</a>
     </div>
   </div>
@@ -1438,7 +1639,7 @@ footer{background:#0B1430;color:#8B9BC4;padding:3.6rem 0 2rem}
           <li><b>Factoring Management</b><span data-en="10% of Serbia’s factoring market — SEF web form, calculations, credit lines, recourse, received loans, reports, partner API">10% tržišta faktoringa u Srbiji — SEF web forma, obračuni, okvirne linije, regres, primljene pozajmice, izveštaji, partnerski API</span></li>
           <li><b data-en="Financial Calculators">Finansijski kalkulatori</b><span data-en="annuity, installments and factoring — ready to embed">anuitet, rate i faktoring — spremni za ugradnju</span></li>
           <li><b>Workflow Lite</b><span data-en="credit process on Microsoft Access — no server, no project">kreditni proces na Microsoft Accessu — bez servera i projekta</span></li>
-          <li><b>Rythmós CRM</b><span data-en="campaigns, company records, daily worklist and sales pipeline">kampanje, dosije firme, radna lista i prodajni pipeline</span></li>
+          <li><b>Rythmós CRM</b><span data-en="campaigns, company records, worklist and pipeline — for finance and any B2B sales">kampanje, dosije firme, radna lista i pipeline — za finansije i svaku B2B prodaju</span></li>
         </ul>
       </div>
       <div class="road-col dev reveal">
@@ -1740,12 +1941,12 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 <script>
 /* ---- factoring: life of an invoice, gallery, convention lab ---- */
 (function(){
-  function tabs(btnSel, paneSel, key){
-    const btns = [...document.querySelectorAll(btnSel)];
-    const panes = [...document.querySelectorAll(paneSel)];
+  function tabs(root, btnSel, paneSel, key, paneKey){
+    const btns = [...root.querySelectorAll(btnSel)];
+    const panes = [...root.querySelectorAll(paneSel)];
     function show(i){
       btns.forEach(b => { const on = b.dataset[key] === String(i); b.classList.toggle('active', on); b.setAttribute('aria-selected', on ? 'true' : 'false'); });
-      panes.forEach(p => { const on = p.dataset[key === 'step' ? 'pane' : key] === String(i); p.hidden = !on; p.classList.toggle('active', on); });
+      panes.forEach(p => { const on = p.dataset[paneKey] === String(i); p.hidden = !on; p.classList.toggle('active', on); });
     }
     btns.forEach((b, idx) => {
       b.addEventListener('click', () => show(b.dataset[key]));
@@ -1758,8 +1959,8 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
       });
     });
   }
-  tabs('.fx-step', '.fx-pane', 'step');
-  tabs('.fx-gtab', '.fx-gpane', 'g');
+  document.querySelectorAll('.fx-flow').forEach(r => tabs(r, '.fx-step', '.fx-pane', 'step', 'pane'));
+  document.querySelectorAll('.fx-gallery').forEach(r => tabs(r, '.fx-gtab', '.fx-gpane', 'g', 'g'));
 
   /* convention lab — formulas from the methodology: calendar-month (M), actual/360, ACT/365; round half up to 2 decimals */
   const $ = id => document.getElementById(id);
