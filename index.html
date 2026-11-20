@@ -120,6 +120,7 @@ h1 em{font-style:italic;color:var(--gold);font-weight:400}
   .hero-q{order:2;margin-top:2.2rem}
   .hero-shot{order:3;margin-top:2.6rem}
   .hero-stats{order:4}
+  .hero-new{order:5;margin:2.4rem 0 0}
 }
 .hero-shot{position:relative;margin:0;min-width:0}
 .hero-shot .shot{box-shadow:0 30px 70px -20px rgba(0,0,0,.6)}
@@ -133,14 +134,21 @@ h1 em{font-style:italic;color:var(--gold);font-weight:400}
 .hq-label{font-family:var(--serif);font-size:1.45rem;font-weight:500;color:#fff;margin-bottom:1rem}
 .hero-paths{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
 @media(max-width:760px){.hero-paths{grid-template-columns:1fr;gap:.6rem}}
-.hero-paths a{position:relative;display:block;padding:1.1rem 1.2rem 1.1rem 3.1rem;border:1px solid var(--line-navy);border-radius:6px;background:rgba(255,255,255,.03);text-decoration:none;transition:border-color .2s,background .2s}
+.hero-paths a{position:relative;display:block;padding:1.1rem 3rem 1.1rem 1.2rem;border:1px solid var(--line-navy);border-radius:6px;background:rgba(255,255,255,.03);text-decoration:none;transition:border-color .2s,background .2s}
 .hero-paths a:hover,.hero-paths a:focus-visible{border-color:var(--gold);background:rgba(176,138,62,.08);outline:none}
-.hero-paths .hp-r{position:absolute;left:1.15rem;top:1.3rem;width:18px;height:18px;border-radius:50%;border:1.5px solid #7688B4;transition:border-color .2s}
-.hero-paths .hp-r::after{content:'';position:absolute;inset:3px;border-radius:50%;background:var(--gold);transform:scale(0);transition:transform .2s}
-.hero-paths a:hover .hp-r,.hero-paths a:focus-visible .hp-r{border-color:var(--gold)}
-.hero-paths a:hover .hp-r::after,.hero-paths a:focus-visible .hp-r::after{transform:scale(1)}
+.hero-paths .hp-a{position:absolute;right:1.2rem;top:50%;transform:translateY(-50%);color:var(--gold);font-size:1.15rem;line-height:1;transition:transform .2s}
+.hero-paths a:hover .hp-a,.hero-paths a:focus-visible .hp-a{transform:translate(4px,-50%)}
 .hero-paths .hp-k{display:block;color:#fff;font-weight:600;font-size:1rem}
 .hero-paths .hp-d{display:block;color:#93A2C9;font-size:.84rem;margin-top:.15rem}
+@media(max-width:760px){
+  header{padding-top:6.4rem}
+  .hero-eyebrow{margin-bottom:1rem}
+  .hero-sub{margin-top:1rem;font-size:1.02rem}
+  .hero-ctas{margin-top:1.4rem}
+  .hero-q{margin-top:1.8rem}
+  .hq-label{font-size:1.25rem;margin-bottom:.7rem}
+  .hero-paths a{padding:.8rem 2.8rem .8rem 1rem}
+}
 
 /* ---------- limit demo ---------- */
 .ld{background:var(--paper);border-bottom:1px solid var(--line);padding:5.5rem 0}
@@ -678,7 +686,7 @@ footer{background:#0B1430;color:#8B9BC4;padding:3.6rem 0 2rem}
     <div class="hero-split">
       <div class="hero-copy">
         <h1 data-en="Software banks <em>actually</em> use.">Softver koji banke <em>zaista</em> koriste.</h1>
-        <p class="hero-sub" data-en="Factoring from SEF invoice to collection, a credit process visible from campaign to payout, and AI that sends your data to no one. Built by people who ran these exact processes inside a bank for 15+ years.">Faktoring od SEF fakture do naplate, kreditni proces vidljiv od kampanje do isplate i AI koji ne šalje podatke nikome. Sisteme grade ljudi koji su te procese vodili u banci, 15+ godina.</p>
+        <p class="hero-sub" data-en="Calculate factoring per contract, follow a credit application to payout and know the next step for every sales opportunity.">Obračunajte faktoring po ugovoru, pratite kreditni zahtev do isplate i znajte koji je sledeći korak za svaku prodajnu priliku.</p>
         <div class="hero-ctas">
           <a class="btn btn-gold" href="#kontakt" data-product="factoring" data-en="Book a factoring demo">Zatraži demo faktoringa</a>
           <a class="btn btn-ghost" href="#limit-demo" data-en="See how the system prevents a limit breach">Pogledaj kako sistem sprečava prekoračenje limita</a>
@@ -695,9 +703,9 @@ footer{background:#0B1430;color:#8B9BC4;padding:3.6rem 0 2rem}
     <div class="hero-q" role="group" aria-labelledby="heroQ">
       <p class="hq-label" id="heroQ" data-en="Your role?">Vaša uloga?</p>
       <div class="hero-paths">
-        <a href="#factoring"><span class="hp-r" aria-hidden="true"></span><span class="hp-k" data-en="I run factoring">Vodim faktoring</span><span class="hp-d" data-en="Invoices, limits, interest, recourse">Fakture, limiti, kamate, regres</span></a>
-        <a href="#workflow-lite"><span class="hp-r" aria-hidden="true"></span><span class="hp-k" data-en="I manage the credit process">Upravljam kreditnim procesom</span><span class="hp-d" data-en="From application to payout, in one app">Od zahteva do isplate, u jednoj aplikaciji</span></a>
-        <a href="#crm"><span class="hp-r" aria-hidden="true"></span><span class="hp-k" data-en="I sell to companies">Vodim prodaju firmama</span><span class="hp-d" data-en="Register, campaigns, pipeline">Registar, kampanje, pipeline</span></a>
+        <a href="#factoring"><span class="hp-k" data-en="I run factoring">Vodim faktoring</span><span class="hp-d" data-en="Invoices, limits, interest, recourse">Fakture, limiti, kamate, regres</span><span class="hp-a" aria-hidden="true">→</span></a>
+        <a href="#workflow-lite"><span class="hp-k" data-en="I manage the credit process">Upravljam kreditnim procesom</span><span class="hp-d" data-en="From application to payout, in one app">Od zahteva do isplate, u jednoj aplikaciji</span><span class="hp-a" aria-hidden="true">→</span></a>
+        <a href="#crm"><span class="hp-k" data-en="I sell to companies">Vodim prodaju firmama</span><span class="hp-d" data-en="Register, campaigns, pipeline">Registar, kampanje, pipeline</span><span class="hp-a" aria-hidden="true">→</span></a>
       </div>
     </div>
     <div class="hero-stats">
